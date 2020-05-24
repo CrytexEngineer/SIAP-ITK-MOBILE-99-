@@ -79,8 +79,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        setHasOptionsMenu(true)
         activity?.getWindow()?.getDecorView()
             ?.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
 
@@ -259,7 +258,7 @@ class HomeFragment : Fragment() {
 
     private fun showData(MA_Nrp: Int) {
         kelasViewModel.getKelas(MA_Nrp)
-        notificationViewModel.getRemoteNotification(MA_Nrp)
+//        notificationViewModel.getRemoteNotification(MA_Nrp)
         presenceViewModel.getPresenceCount(MA_Nrp, "all")
     }
 
@@ -271,17 +270,13 @@ class HomeFragment : Fragment() {
 
         Log.d("NAVIGATE", item.itemId.toString() + " = " + R.id.nav_home)
 
-        if (item.itemId == R.id.nav_home) {
-            navController.navigate(R.id.nav_home)
-
-        }
         if (item.itemId == R.id.nav_kelas) {
-            navController.navigate(R.id.nav_kelas)
+            navController.navigate(R.id.action_nav_home_to_nav_kelas)
 
         }
-
         return super.onOptionsItemSelected(item)
 
     }
+
 
 }

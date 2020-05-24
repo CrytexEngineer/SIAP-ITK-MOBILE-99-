@@ -50,25 +50,6 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        bottom_appbar.setupWithNavController(navController)
-
-        Log.d("NAVIGATE", item.itemId.toString() + " = " + R.id.nav_home)
-
-        if (item.itemId == R.id.nav_home) {
-            navController.navigate(R.id.nav_home)
-
-        }
-        if (item.itemId == R.id.nav_kelas) {
-            navController.navigate(R.id.nav_kelas)
-
-        }
-
-        return super.onOptionsItemSelected(item)
-
-    }
 
     private fun onStartJobIntentService() {
         val mIntent = Intent(this, AlarmService::class.java)

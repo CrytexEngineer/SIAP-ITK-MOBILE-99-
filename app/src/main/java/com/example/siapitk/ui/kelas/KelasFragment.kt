@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.siapitk.ApiUtils.KelasViewmodel
@@ -53,6 +54,7 @@ class KelasFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         activity?.getWindow()?.getDecorView()
             ?.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
 
@@ -86,6 +88,19 @@ class KelasFragment : Fragment() {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val navController = findNavController()
+
+        Log.d("NAVIGATE", item.itemId.toString()+" = "+R.id.nav_home)
+
+        if (item.itemId==R.id.nav_home){
+            navController.navigate(R.id.action_nav_kelas_to_nav_home)
+        }
+
+        return super.onOptionsItemSelected(item)
+
+    }
 
 
 }

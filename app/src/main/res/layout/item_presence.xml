@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="1dp"
+>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_marginHorizontal="8dp"
+        android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/item_tv_presence_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/avenir"
+                android:textColor="#A6A6A6"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                tools:text="22 April 2020" />
+
+
+        <ImageView
+            android:id="@+id/item_presence_img_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/badge_polygon_check"
+            android:layout_below="@id/item_tv_presence_date"
+  />
+
+
+        <TextView
+            android:id="@+id/item_tv_presence_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_tv_presence_title"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/item_presence_img_badge"
+            android:drawableLeft="@drawable/ic_tiny_scan"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/avenir_roman"
+            android:textSize="12sp"
+            tools:text="09:45 " />
+
+        <TextView
+            android:id="@+id/item_tv_presence_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_tv_presence_date"
+
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/item_presence_img_badge"
+            android:fontFamily="@font/avenir"
+            android:textColor="#22272C"
+            android:textSize="13sp"
+            tools:text="Pertemuan Pertama" />
+
+
+
+        <TextView
+            android:id="@+id/item_tv__presence_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_toRightOf="@id/item_tv_presence_time"
+            android:layout_below="@id/item_tv_presence_title"
+            android:drawableLeft="@drawable/ic_black_board"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/avenir_roman"
+            android:textSize="12sp"
+            tools:text=" Hadir" />
+
+        <TextView
+            android:id="@+id/item_tv_presence_is_late"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_below="@id/item_tv_presence_title"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/item_tv__presence_note"
+            android:drawableStart="@drawable/ic_black_clock"
+            android:fontFamily="@font/avenir_roman"
+            android:textSize="12sp"
+            tools:text=" Telat" />
+
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

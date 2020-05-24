@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scanner_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dialog_slide_bar"
+            android:tint="#EFEFF4" />
+
+        <ImageView
+            android:id="@+id/img_validation_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:layout_marginBottom="43dp"
+            android:src="@drawable/warning_notification" />
+
+
+        <TextView
+            android:id="@+id/validation_messege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_regular"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="Presensi Telah di Blokir" />
+
+        <TextView
+            android:id="@+id/tv_validation_eror_messege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:gravity="center_horizontal"
+            android:text="Terjadi kesalahan, lakukan pindai kode QR ulang  untuk melakukan presensi"
+            android:textColor="@android:color/black"
+            android:textSize="14dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_notification_rescan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/sf_pro_regular"
+            android:gravity="center"
+            android:text="Pindai Ulang"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            app:backgroundTint="#097BBC"
+
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

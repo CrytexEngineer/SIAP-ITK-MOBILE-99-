@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="168dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="24dp">
+
+            <ImageView
+                android:id="@+id/btn_profile_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_arrow_backward"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tv_label_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/avenir"
+                android:text="Profile"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_picture"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="67dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/rounded_textview"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                tools:text="M" />
+
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_profile_back"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="6dp"
+                android:layout_toRightOf="@id/profile_picture"
+                android:fontFamily="@font/monserrat"
+                android:textColor="@android:color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:text="Muhammad Aqil Maulana" />
+
+            <TextView
+                android:id="@+id/profile_ma_nrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_name"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@id/profile_picture"
+                android:fontFamily="@font/monserrat"
+                android:textColor="@android:color/white"
+                android:textSize="13dp"
+                tools:text="10161059" />
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginVertical="1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/device_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_profile_device_id" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toRightOf="@id/device_icon"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="ID Perangkat Saya"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/profile_ma_imei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/sf_pro_regular"
+                android:textColor="#B8BCC6"
+                android:textSize="12sp"
+                tools:text="AFJOAFJAOSI" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginVertical="1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/email_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_profile_icon_email" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toRightOf="@id/email_icon"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="Email"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/profile_ma_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/sf_pro_regular"
+                android:textColor="#B8BCC6"
+                android:textSize="12sp"
+                tools:text="10161059@student.itk.ac.id" />
+
+        </RelativeLayout>
+        >
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginVertical="1dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:id="@+id/btn_profile_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/lock_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_profile_icon_lock" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toRightOf="@id/lock_icon"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="Ganti Password"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@android:color/white"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_profile_chevron"
+                android:text="Ganti Password" />
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginVertical="1dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:id="@+id/btn_profile_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/question_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_profile_about" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toRightOf="@id/question_icon"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="Tentang"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@android:color/white"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_profile_chevron"
+                android:text="Ganti Password" />
+
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/btn_profile_log_out"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/log_out_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_profile_icon_log_out" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toRightOf="@id/log_out_icon"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="Log Out"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@android:color/white"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ic_profile_chevron"
+                android:text="Ganti Password" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sf_pro_regular"
+        android:gravity="center_horizontal"
+        android:text="SIAP ITK-V-alpha-0.1" />
+</LinearLayout>

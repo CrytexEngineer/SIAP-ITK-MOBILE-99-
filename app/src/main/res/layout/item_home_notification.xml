@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="122dp"
+    app:cardBackgroundColor="#FFF3C7"
+    android:layout_marginHorizontal="24dp"
+    app:cardCornerRadius="16dp">
+
+    <RelativeLayout
+        android:id="@+id/layput_home_higlight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+     >
+
+        <TextView
+            android:id="@+id/img_home_badge_presence_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/avenir"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tv_home_label_presence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/img_home_badge_presence_count"
+            android:text="Absen Presensi"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_home_highlight_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_label_presence"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/avenir_roman"
+            android:layout_toRightOf="@id/img_home_badge_presence_count"
+            tools:text="Anda memiliki 3 mata kuliah dengan presensi kurang dari 30% " />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

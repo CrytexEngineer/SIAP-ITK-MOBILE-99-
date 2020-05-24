@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.siapitk">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.camera2.params.MeteringRectangle" />
+    <uses-feature android:name="android.hardware.camera2.CameraDevice" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ui.notification.NotificationActivity"></activity>
+
+        <service
+            android:name=".service.AlarmService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:stopWithTask="false" />
+
+        <receiver
+            android:name=".service.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".service.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ui.presence.PresenceActivity" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar.StatusBarGrey" />
+        <activity
+            android:name=".ProfileActivity"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.NoActionBar.LightBlue" />
+        <activity
+            android:launchMode="singleTop"
+            android:name=".ui.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".QrScannerActivity"
+            android:theme="@style/AppTheme.NoActionBar.dark" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

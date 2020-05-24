@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "135244625481",
+    "firebase_url": "https://siap-itk.firebaseio.com",
+    "project_id": "siap-itk",
+    "storage_bucket": "siap-itk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135244625481:android:ace61b1fda40db8ce5b198",
+        "android_client_info": {
+          "package_name": "com.example.siapitk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135244625481-ve924b13eps33dlk0ipdad0g39a8f3of.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8Ss4n3J3Zm1Lag-m7h11IGqEh4DvSCVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135244625481-ve924b13eps33dlk0ipdad0g39a8f3of.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

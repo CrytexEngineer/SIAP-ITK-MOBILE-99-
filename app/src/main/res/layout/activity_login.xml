@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    tools:context=".ui.login.LoginActivity">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/monserrat"
+        android:text="Masuk"
+        android:textColor="#59595B"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/monserrat"
+        android:text="Kedalam Akun Anda"
+        android:textColor="#59595B"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sf_pro_regular"
+        android:text="Selamat datang dan silahkan login untuk malanjutkan menggunakan aplikasi"
+        android:textColor="#858A93" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_regular"
+        android:layout_marginTop="24dp"
+        android:text="Email"
+        android:textColor="#59595B"
+        android:textSize="14sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:hint="Contoh: nim@student.itk.ac.id"
+    >
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sf_pro_regular"
+            android:textSize="12dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_regular"
+        android:layout_marginTop="16dp"
+        android:text="Password"
+        android:textColor="#59595B"
+        android:textSize="14sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/sf_pro_regular"
+        android:hint="Masukan Kata Sandi Kamu"
+        android:textColorHint="#BDBDBD"
+     >
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/sf_pro_regular"
+            android:textColorHint="#BDBDBD"
+            android:textSize="12dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/login"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_cornered_rectangle"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#097BBC"
+        app:spinning_bar_color="@color/colorPieAccuracyWhite"
+        android:enabled="false"
+        android:fontFamily="@font/sf_pro_regular"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_reset_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:text="Lupa Password?"
+        android:textAllCaps="false"
+        android:fontFamily="@font/sf_pro_regular"
+        />
+
+</LinearLayout>

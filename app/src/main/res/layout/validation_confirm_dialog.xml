@@ -1,0 +1,158 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scanner_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dialog_slide_bar"
+            android:tint="#EFEFF4" />
+
+
+        <TextView
+            android:id="@+id/mk_mata_kuliah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="42dp"
+            android:fontFamily="@font/avenir_roman"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            tools:text="Sistem Cerdas" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/img_validation_confirm_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_prodile_dosen" />
+
+            <TextView
+                android:id="@+id/pe_nama_lengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_validation_confirm_profile"
+                android:fontFamily="@font/sf_pro_regular"
+                android:textColor="@android:color/black"
+                android:textSize="14dp"
+                tools:text="Lovinta Happy Atriani" />
+
+            <TextView
+                android:id="@+id/tv_confirmation_kode_matakuliah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pe_nama_lengkap"
+                android:layout_toRightOf="@id/img_validation_confirm_profile"
+                android:fontFamily="@font/sf_pro_regular"
+                android:textSize="14dp"
+                tools:text="SF 1226" />
+
+
+            <LinearLayout
+                android:id="@+id/validation_layout_part_1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/img_validation_confirm_profile"
+                android:background="@drawable/top_bottom_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_validatiton_ke_kelas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_black_board"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/sf_pro_regular"
+                    android:textSize="14dp"
+                    tools:text="Kelas B" />
+
+                <TextView
+                    android:id="@+id/tv_validation_ruang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_black_door"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/sf_pro_regular"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    tools:text="Ruang 304 B" />
+
+                <TextView
+                    android:id="@+id/tv_validation_jam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_black_clock"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/sf_pro_regular"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    tools:text="09:00-10:00" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_validation_waktu_presensi_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/validation_layout_part_1"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/avenir_roman"
+                android:text="Kamu Absen Pukul:"
+                android:textSize="16dp" />
+
+
+            <TextView
+                android:id="@+id/tv_validation_waktu_presensi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/validation_layout_part_1"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_toRightOf="@id/tv_validation_waktu_presensi_label"
+                android:fontFamily="@font/avenir"
+                android:text="-"
+                android:textSize="16dp" />
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/validation_presence_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:gravity="center"
+            android:text="Absen"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            app:backgroundTint="#097BBC"
+            app:cornerRadius="8dp" />
+
+
+    </LinearLayout>
+</LinearLayout>

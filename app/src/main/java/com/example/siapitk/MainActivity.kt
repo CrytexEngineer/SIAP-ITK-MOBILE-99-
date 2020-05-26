@@ -7,15 +7,26 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.siapitk.ApiUtils.KelasViewmodel
+import com.example.siapitk.ApiUtils.PresenceViewModel
+import com.example.siapitk.ViewModel.NotificationViewModelFactory
+import com.example.siapitk.ViewModel.PresenceViewModelFactory
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.service.AlarmService
+import com.example.siapitk.ui.login.HomeViewModelFactory
+import com.example.siapitk.ui.notification.NotificationViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_kelas.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var kelasViewModel: KelasViewmodel
+    lateinit var notificationViewModel: NotificationViewModel
+    lateinit var presenceViewModel: PresenceViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +34,16 @@ class MainActivity : AppCompatActivity() {
         onStartJobIntentService()
         setSupportActionBar(bottom_appbar)
 
+        kelasViewModel = ViewModelProviders.of(this,
+            application?.let { HomeViewModelFactory(it) }).get(KelasViewmodel::class.java)
+
+        notificationViewModel = ViewModelProviders.of(this,
+            application?.let { NotificationViewModelFactory(it) })
+            .get(NotificationViewModel::class.java)
+
+        presenceViewModel = ViewModelProviders.of(this,
+            application?.let { PresenceViewModelFactory(it) })
+            .get(PresenceViewModel::class.java)
 
 
         btn_action_scan.setOnClickListener {
@@ -32,8 +53,6 @@ class MainActivity : AppCompatActivity() {
 
             )
         }
-
-
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.siapitk.ui.kelas
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,12 +11,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.siapitk.ApiUtils.KelasViewmodel
+import com.example.siapitk.MainActivity
 import com.example.siapitk.ProfileActivity
+import com.example.siapitk.QrScannerActivity
 import com.example.siapitk.R
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.ui.login.HomeViewModelFactory
@@ -28,15 +33,18 @@ class KelasFragment : Fragment() {
     private lateinit var adapter: KelasAdapter
     private lateinit var kelasViewModel: KelasViewmodel
 
-
+    private var mView: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layoutInflater = inflater.inflate(R.layout.fragment_kelas, container, false)
-        return layoutInflater
+        if (mView == null) {
+            mView = inflater.inflate(R.layout.fragment_kelas, container, false)
+        }
+
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,21 +61,22 @@ class KelasFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+        setRetainInstance(true)
+        kelasViewModel = (activity as MainActivity).kelasViewModel
         activity?.getWindow()?.getDecorView()
             ?.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-
-        kelasViewModel = ViewModelProviders.of(this,
-            activity?.application?.let { HomeViewModelFactory(it) }).get(KelasViewmodel::class.java)
-
 
         kelasViewModel.kelas.observe(this, Observer { t ->
             t?.let {
                 it.kelasList?.let { it1 -> adapter.setListKelas(it1)
                     adapter.notifyDataSetChanged()
                     swlayout_kelas.setRefreshing(false);
-                 }
+                }
             }
         })
+
+
         activity?.application?.let { LoginPreferences(it).getLoggedInUser()?.MA_Nrp }?.let {
 
             showData(it)
@@ -86,6 +95,24 @@ class KelasFragment : Fragment() {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val navController = findNavController()
+
+        Log.d("NAVIGATE", item.itemId.toString()+" = "+R.id.nav_home)
+
+        if (item.itemId==R.id.nav_home){
+//            if(navController.popBackStack(R.id.nav_home,false)){
+//                Log.d("DESTINATION","exits")
+//                navController.popBackStack()
+//            }else{
+                navController.navigate(R.id.action_nav_kelas_to_nav_home)
+//            }
+        }
+
+        return super.onOptionsItemSelected(item)
+
+    }
 
 
 }

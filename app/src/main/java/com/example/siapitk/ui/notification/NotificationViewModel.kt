@@ -20,10 +20,11 @@ class NotificationViewModel(private val repository: NotificationRepository) : Vi
     val errorMessege = MutableLiveData<String>()
 
 
-    fun getRemoteNotification(MA_Nrp: Int) {
+    fun getRemoteNotification(MA_Nrp: Int, newNotificationCAllBack: NewNotificationCAllBack) {
         repository.getRemoteNotification(MA_Nrp, object : RemoteDataCallback {
             override fun onSuccess(data: ApiResponse) {
                 remoteNotification.value = data.notification?.get(0)
+                newNotificationCAllBack.onReceive()
             }
 
             override fun onFailed(errorMessage: String?) {
@@ -36,6 +37,10 @@ class NotificationViewModel(private val repository: NotificationRepository) : Vi
     fun getSavedNotification(): LiveData<List<Notification>> {
         var notification = MutableLiveData<ArrayList<Notification>>()
         return repository.getSavedNotification()
+    }
+
+    public interface NewNotificationCAllBack{
+        fun onReceive()
     }
 
 }

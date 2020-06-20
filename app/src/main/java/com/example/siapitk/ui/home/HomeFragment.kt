@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.siapitk.ApiUtils.KelasViewmodel
 import com.example.siapitk.ApiUtils.PresenceViewModel
+import com.example.siapitk.MainActivity
 import com.example.siapitk.ProfileActivity
 import com.example.siapitk.R
 import com.example.siapitk.ViewModel.NotificationViewModelFactory
@@ -40,16 +41,19 @@ class HomeFragment : Fragment() {
     private lateinit var notificationViewModel: NotificationViewModel
     private lateinit var presenceViewModel: PresenceViewModel
 
+    private var mView: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layoutInflater = inflater.inflate(R.layout.fragment_home, container, false)
-        return layoutInflater
-    }
+        if (mView == null) {
+            mView = inflater.inflate(R.layout.fragment_home, container, false)
+        }
 
+        return mView
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -79,21 +83,17 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        setHasOptionsMenu(true)
+        setRetainInstance(true)
         activity?.getWindow()?.getDecorView()
             ?.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
 
+        kelasViewModel = (activity as MainActivity).kelasViewModel
+        presenceViewModel = (activity as MainActivity).presenceViewModel
+        notificationViewModel = (activity as MainActivity).notificationViewModel
+
         kelasViewModel = ViewModelProviders.of(this,
             activity?.application?.let { HomeViewModelFactory(it) }).get(KelasViewmodel::class.java)
-
-        notificationViewModel = ViewModelProviders.of(this,
-            activity?.application?.let { NotificationViewModelFactory(it) })
-            .get(NotificationViewModel::class.java)
-
-        presenceViewModel = ViewModelProviders.of(this,
-            activity?.application?.let { PresenceViewModelFactory(it) })
-            .get(PresenceViewModel::class.java)
 
         presenceViewModel.presenceCount.observe(this, Observer { t ->
             swlayout_home.isRefreshing=false
@@ -260,7 +260,7 @@ class HomeFragment : Fragment() {
 
     private fun showData(MA_Nrp: Int) {
         kelasViewModel.getKelas(MA_Nrp)
-        notificationViewModel.getRemoteNotification(MA_Nrp)
+//        notificationViewModel.getRemoteNotification(MA_Nrp)
         presenceViewModel.getPresenceCount(MA_Nrp, "all")
     }
 
@@ -272,17 +272,19 @@ class HomeFragment : Fragment() {
 
         Log.d("NAVIGATE", item.itemId.toString() + " = " + R.id.nav_home)
 
-        if (item.itemId == R.id.nav_home) {
-            navController.navigate(R.id.nav_home)
-
-        }
         if (item.itemId == R.id.nav_kelas) {
-            navController.navigate(R.id.nav_kelas)
-
+//            if(navController.popBackStack(R.id.nav_kelas,false)){
+//                Log.d("DESTINATION","exits")
+//            }else{
+                navController.navigate(R.id.action_nav_home_to_nav_kelas)
+//            }
         }
-
         return super.onOptionsItemSelected(item)
 
     }
 
+    override fun onPause() {
+        super.onPause()
+
+    }
 }

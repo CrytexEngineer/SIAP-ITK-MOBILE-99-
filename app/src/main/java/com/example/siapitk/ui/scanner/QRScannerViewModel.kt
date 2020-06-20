@@ -1,4 +1,4 @@
-package com.example.siapitk.ViewModel
+package com.example.siapitk.ui.scanner
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.example.siapitk.ViewModel
+package com.example.siapitk.ui.presence
 
 
 import RetrofitInstance
@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.siapitk.ApiUtils.PresenceViewModel
 import com.example.siapitk.ApiUtils.PresensenceDataService
 import com.example.siapitk.data.PresenceRepository
-import com.example.siapitk.data.QRScannerRepository
 import com.example.siapitk.data.remoteDataSource.PresenceDataSource
 
 

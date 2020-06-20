@@ -1,9 +1,11 @@
-package com.example.siapitk
+package com.example.siapitk.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.siapitk.R
+import com.example.siapitk.ResetPasswordActivity
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.data.localDataSource.NotificationRoomDatabase
 import com.example.siapitk.ui.login.LoginActivity

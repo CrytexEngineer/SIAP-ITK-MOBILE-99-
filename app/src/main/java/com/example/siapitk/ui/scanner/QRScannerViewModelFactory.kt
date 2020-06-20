@@ -1,4 +1,4 @@
-package com.example.siapitk.ViewModel
+package com.example.siapitk.ui.scanner
 
 import RetrofitInstance
 import android.app.Application

@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.siapitk.ApiUtils.PresenceViewModel
 import com.example.siapitk.DaysUtils
 import com.example.siapitk.R
-import com.example.siapitk.ViewModel.PresenceViewModelFactory
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.data.model.Kelas
 import kotlinx.android.synthetic.main.activity_presence.*

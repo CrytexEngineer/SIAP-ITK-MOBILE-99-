@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".QrScannerActivity">
+    tools:context=".ui.scanner.QrScannerActivity">
 
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/scanner_view"

@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="225dp"
     android:clickable="true"
     app:strokeColor="#EFEFF4"
     app:strokeWidth="2dp"
-    android:layout_margin="8dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="8dp"
     app:cardElevation="0dp"
     app:cardCornerRadius="5dp">
 
@@ -72,7 +73,7 @@
             <ImageView
                 android:id="@+id/btn_item_kelas_action"
                 android:layout_width="50dp"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
                 android:layout_below="@id/layout_part_1"
                 android:layout_alignParentEnd="true"
                 android:background="#D8F5FF"
@@ -122,49 +123,59 @@
                 android:layout_toLeftOf="@id/btn_item_kelas_action"
                 android:background="#EFEFF4" />
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_part_3"
                 android:layout_width="match_parent"
-                app:strokeColor="#EFEFF4"
-                app:strokeWidth="2dp"
-                android:padding="16dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/layout_part_2">
+                android:layout_below="@id/layout_part_2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="0dp"
+                android:padding="16dp"
+                app:strokeColor="#EFEFF4"
+                app:strokeWidth="2dp">
+
 
                 <TextView
                     android:id="@+id/item_kelas_hari"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="4dp"
                     android:drawableStart="@drawable/ic_calendar"
-                    android:textSize="14sp"
+                    android:drawablePadding="4dp"
                     android:fontFamily="@font/avenir_roman"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Senin" />
-
 
                 <TextView
                     android:id="@+id/item_kelas_kelas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="4dp"
-               android:drawableStart="@drawable/ic_black_board"
-                    android:textSize="14sp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="18dp"
                     android:layout_toRightOf="@id/item_kelas_ruang"
+                    android:drawableStart="@drawable/ic_black_board"
+                    android:drawablePadding="4dp"
                     android:fontFamily="@font/avenir_roman"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/item_kelas_hari"
+                    app:layout_constraintTop_toBottomOf="@+id/item_kelas_hari"
                     tools:text="Kelas A" />
 
                 <TextView
                     android:id="@+id/item_kelas_ruang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="4dp"
-                    android:layout_marginTop="8dp"
                     android:layout_below="@id/item_kelas_hari"
                     android:drawableLeft="@drawable/ic_black_door"
-                    android:textSize="14sp"
 
+                    android:drawablePadding="4dp"
                     android:fontFamily="@font/avenir_roman"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text=" Ruang 302A" />
 
                 <TextView
@@ -172,16 +183,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/item_kelas_kelas"
+                    android:layout_marginTop="18dp"
                     android:layout_toRightOf="@id/item_kelas_ruang"
                     android:drawableLeft="@drawable/ic_black_clock"
-                    android:textSize="14sp"
                     android:drawablePadding="4dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="24dp"
                     android:fontFamily="@font/avenir_roman"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/item_kelas_ruang"
+                    app:layout_constraintTop_toBottomOf="@+id/item_kelas_ruang"
                     tools:text=" 09.00-12.00" />
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </RelativeLayout>

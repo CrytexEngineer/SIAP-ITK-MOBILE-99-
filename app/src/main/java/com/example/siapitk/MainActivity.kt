@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.service.AlarmService
+import com.example.siapitk.ui.scanner.QrScannerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 

@@ -48,7 +48,7 @@
             android:name=".ResetPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar.StatusBarGrey" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ui.profile.ProfileActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar.LightBlue" />
         <activity
@@ -62,7 +62,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QrScannerActivity"
+            android:name=".ui.scanner.QrScannerActivity"
             android:theme="@style/AppTheme.NoActionBar.dark" />
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.siapitk.ViewModel
+package com.example.siapitk.ui.notification
 
 import RetrofitInstance
 import android.app.Application
@@ -8,7 +8,6 @@ import com.example.siapitk.ApiUtils.NotificationDataService
 import com.example.siapitk.data.NotificationRepository
 import com.example.siapitk.data.localDataSource.NotificationRoomDatabase
 import com.example.siapitk.data.remoteDataSource.NotificationDataSource
-import com.example.siapitk.ui.notification.NotificationViewModel
 
 class NotificationViewModelFactory(var application: Application) : ViewModelProvider.Factory {
 

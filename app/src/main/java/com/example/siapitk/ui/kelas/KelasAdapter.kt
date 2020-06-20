@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.siapitk.DaysUtils
 import com.example.siapitk.R
 import com.example.siapitk.data.model.Kelas
 import com.example.siapitk.ui.presence.PresenceActivity
@@ -19,7 +20,8 @@ import java.util.*
 class KelasAdapter(val context: Context) :
     RecyclerView.Adapter<KelasAdapter.KelasAdapterViewHolder>() {
 
-    class KelasAdapterViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
+    class KelasAdapterViewHolder(override val containerView: View) :
+        RecyclerView.ViewHolder(containerView),
         LayoutContainer {
 
 
@@ -27,18 +29,24 @@ class KelasAdapter(val context: Context) :
             containerView.findViewById<TextView>(R.id.item_kelas_jam).text =
                 kelas.jamMulai?.substring(0, 5) + "-" + kelas.jamUsai?.substring(0, 5)
             containerView.findViewById<TextView>(R.id.item_kelas_kelas).text = kelas.kelas
+            containerView.findViewById<TextView>(R.id.item_kelas_hari).text =
+                kelas.jadwalHari?.let { it1 -> DaysUtils().covertDays(it1) }
             containerView.findViewById<TextView>(R.id.item_kelas_matakuliah).text = kelas.mataKuliah
             containerView.findViewById<TextView>(R.id.item_kelas_ruang).text = kelas.jadwalRuangan
             containerView.findViewById<TextView>(R.id.item_kelas_dosen).text = kelas.namaPengajar
-            containerView.findViewById<TextView>(R.id.item_kelas_persentase).text ="-"
-            Log.d("ISMAYA", kelas.jumlahPertemuan.toString()+kelas.jumlahPertemuan.toString())
+            containerView.findViewById<TextView>(R.id.item_kelas_persentase).text = "-"
+            containerView.findViewById<FrameLayout>(R.id.item_matakuliah_container)
+                .setOnClickListener { listener(kelas) }
+
+            if (kelas.jadwalRuangan.equals("NULL")) {
+                containerView.findViewById<TextView>(R.id.item_kelas_ruang).text = "-"
+            }
             if (kelas.jumlahPertemuan > 0) {
                 containerView.findViewById<TextView>(R.id.item_kelas_persentase).text =
                     kelas.persentaseKehadiran + "%"
             }
-            containerView.findViewById<FrameLayout>(R.id.item_matakuliah_container)
-                .setOnClickListener { listener(kelas) }
         }
+
 
     }
 

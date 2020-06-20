@@ -1,4 +1,4 @@
-package com.example.siapitk
+package com.example.siapitk.ui.scanner
 
 
 import android.os.Bundle
@@ -10,8 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.siapitk.ViewModel.QRScannerViewModel
-import com.example.siapitk.ViewModel.QRScannerViewModelFactory
+import com.example.siapitk.R
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.data.model.ApiResponse
 import com.example.siapitk.data.model.QRcode

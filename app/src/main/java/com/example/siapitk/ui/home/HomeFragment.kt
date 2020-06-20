@@ -143,6 +143,7 @@ class HomeFragment : Fragment() {
                                 R.drawable.badge_polygon_check_big
                             )
                         }
+                    img_home_badge_presence_count.text = "   "
                 }
 
             }

@@ -2,13 +2,16 @@ package com.example.siapitk.service
 
 
 import RetrofitInstance
+import android.app.Application
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.example.siapitk.ApiUtils.NotificationDataService
+import com.example.siapitk.data.NotificationRepository
 import com.example.siapitk.data.RemoteDataCallback
 import com.example.siapitk.data.localDataSource.LoginPreferences
+import com.example.siapitk.data.localDataSource.NotificationRoomDatabase
 import com.example.siapitk.data.model.ApiResponse
 import com.example.siapitk.data.remoteDataSource.NotificationDataSource
 import java.text.SimpleDateFormat
@@ -34,26 +37,30 @@ class AlarmBroadcastReceiver : BroadcastReceiver() {
                 LoginPreferences(
                     it
                 ).getLoggedInUser()?.MA_Nrp?.let {
-                    NotificationDataSource(
-                        RetrofitInstance.getRetrofitInstance()
-                            .create(NotificationDataService::class.java)
-                    ).getNotification(
-                        it,
-                        object : RemoteDataCallback {
-                            override fun onSuccess(data: ApiResponse) {
-                                if (context != null) data.notification?.get(0)?.notificationMsg?.let {
-                                    NotificationHelper.createNotification(
-                                        context,
-                                        LoginPreferences(context).getLoggedInUser()?.MA_NamaLengkap + ", " + it
-                                    )
 
+                    NotificationRepository(
+                        NotificationDataSource(
+                            RetrofitInstance.getRetrofitInstance()
+                                .create(NotificationDataService::class.java)
+                        ),
+                     Application(),
+                        NotificationRoomDatabase.getDatabase(context).notificationDao()
+                    ).getRemoteNotification(
+                            it,
+                            object : RemoteDataCallback {
+                                override fun onSuccess(data: ApiResponse) {
+                                    if (context != null) data.notification?.get(0)?.notificationMsg?.let {
+                                        NotificationHelper.createNotification(
+                                            context,
+                                            LoginPreferences(context).getLoggedInUser()?.MA_NamaLengkap + ", " + it
+                                        )
+                                    }
                                 }
-                            }
 
-                            override fun onFailed(errorMessage: String?) {
-                            Log.d("EROR", errorMessage.toString())
-                            }
-                        })
+                                override fun onFailed(errorMessage: String?) {
+                                    Log.d("EROR", errorMessage.toString())
+                                }
+                            })
                 }
 
                 val mIntent = Intent(context, AlarmService::class.java)

@@ -21,7 +21,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "BASE_URL", "\"https://48ad9da7.ngrok.io/api/v1/mobile/\""
+//        buildConfigField "String", "BASE_URL", "\"https://f8bcba614661" +
+//                ".ngrok.io/api/v1/mobile/\""
+
+        buildConfigField "String", "BASE_URL", "\"http://192.168.137.1:8000/api/v1/mobile/\""
     }
 
     buildTypes {

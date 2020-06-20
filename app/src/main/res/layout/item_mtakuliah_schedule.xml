@@ -15,7 +15,7 @@
     <FrameLayout
         android:id="@+id/item_matakuliah_container"
         android:layout_width="match_parent"
-        android:layout_height="191dp"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground">
 
@@ -72,7 +72,7 @@
             <ImageView
                 android:id="@+id/btn_item_kelas_action"
                 android:layout_width="50dp"
-                android:layout_height="128dp"
+                android:layout_height="150dp"
                 android:layout_below="@id/layout_part_1"
                 android:layout_alignParentEnd="true"
                 android:background="#D8F5FF"
@@ -132,12 +132,25 @@
                 android:layout_below="@id/layout_part_2">
 
                 <TextView
+                    android:id="@+id/item_kelas_hari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/ic_calendar"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/avenir_roman"
+                    tools:text="Senin" />
+
+
+                <TextView
                     android:id="@+id/item_kelas_kelas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="4dp"
                android:drawableStart="@drawable/ic_black_board"
                     android:textSize="14sp"
+                    android:layout_marginStart="24dp"
+                    android:layout_toRightOf="@id/item_kelas_ruang"
                     android:fontFamily="@font/avenir_roman"
                     tools:text="Kelas A" />
 
@@ -146,11 +159,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="4dp"
-                    android:layout_toRightOf="@id/item_kelas_jam"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@id/item_kelas_hari"
                     android:drawableLeft="@drawable/ic_black_door"
                     android:textSize="14sp"
-                    android:layout_marginStart="16dp"
+
                     android:fontFamily="@font/avenir_roman"
                     tools:text=" Ruang 302A" />
 
@@ -158,11 +171,13 @@
                     android:id="@+id/item_kelas_jam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/item_kelas_kelas"
+                    android:layout_below="@id/item_kelas_kelas"
+                    android:layout_toRightOf="@id/item_kelas_ruang"
                     android:drawableLeft="@drawable/ic_black_clock"
                     android:textSize="14sp"
                     android:drawablePadding="4dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="24dp"
                     android:fontFamily="@font/avenir_roman"
                     tools:text=" 09.00-12.00" />
 

@@ -44,6 +44,7 @@ class PresenceActivity : AppCompatActivity() {
                 var count = it.presenceCount?.get(0)?.persentase
 
                 presence_tv_count.text=it.presenceCount?.get(0)?.persentase.toString()+"%"
+                presence_tv_pertemuan.text = it.presenceCount?.get(0)?.jumlahPertemuan.toString()
                 presence_tv_sakit.text = it.presenceCount?.get(0)?.sakit.toString()
                 presence_tv_izin.text = it.presenceCount?.get(0)?.izin.toString()
                 presence_tv_alpha.text = it.presenceCount?.get(0)?.alpha.toString()
@@ -51,6 +52,10 @@ class PresenceActivity : AppCompatActivity() {
 
                 if (it.presenceCount?.get(0)?.persentase.toString().equals("null")) {
                     presence_tv_count.text = "-"
+                }
+
+                if (it.presenceCount?.get(0)?.jumlahPertemuan.toString().equals("null")) {
+                    presence_tv_pertemuan.text = "-"
                 }
 
                 if (it.presenceCount?.get(0)?.sakit.toString().equals("null")) {

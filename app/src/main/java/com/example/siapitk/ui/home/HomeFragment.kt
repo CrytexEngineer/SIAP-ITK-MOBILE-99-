@@ -16,9 +16,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.siapitk.ApiUtils.KelasViewmodel
 import com.example.siapitk.ApiUtils.PresenceViewModel
 import com.example.siapitk.MainActivity
-import com.example.siapitk.ProfileActivity
 import com.example.siapitk.R
 import com.example.siapitk.data.localDataSource.LoginPreferences
+import com.example.siapitk.data.model.LoggedInUser
 import com.example.siapitk.data.model.PresenceCount
 import com.example.siapitk.ui.kelas.KelasAdapter
 import com.example.siapitk.ui.login.HomeViewModelFactory
@@ -55,6 +55,7 @@ class HomeFragment : Fragment() {
 
         return mView
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -77,7 +78,7 @@ class HomeFragment : Fragment() {
         }
 
         swlayout_home.setOnRefreshListener {
-                context?.let { LoginPreferences(it).getLoggedInUser()?.MA_Nrp?.let { showData(it) } }
+            context?.let { LoginPreferences(it).getLoggedInUser()?.MA_Nrp?.let { showData(it) } }
         }
     }
 
@@ -97,7 +98,8 @@ class HomeFragment : Fragment() {
             activity?.application?.let { HomeViewModelFactory(it) }).get(KelasViewmodel::class.java)
 
         presenceViewModel.presenceCount.observe(this, Observer { t ->
-            swlayout_home.isRefreshing=false
+            swlayout_home.isRefreshing = false
+
             t?.let {
                 var count = t.presenceCount?.get(0)
                 if (count?.kehadiran.toString().equals("null")) {
@@ -106,6 +108,13 @@ class HomeFragment : Fragment() {
                     tv_home_presence_count.text =
                         t.presenceCount?.get(0)?.kehadiran.toString() + " Kehadiran"
                 }
+
+                    if (count?.kehadiran.toString().equals("null")) {
+                        tv_home_presence_meetings.text = "Semester Ini"
+                    } else {
+                        tv_home_presence_meetings.text =
+                          "Dari " + count?.jumlahPertemuan.toString() + " Pertemuan"
+                    }
 
                 count?.let { it1 ->
                     initChartStatistic(it1)
@@ -116,15 +125,20 @@ class HomeFragment : Fragment() {
         }
         )
 
-//    kelasViewModel.kelas.observe(this, Observer { t ->
-//        t?.let {
-//            it.kelasList?.let { it1 -> adapter.setListKelas(it1) }
-//        }
-//    })
 
 
+        context?.let {
+            LoginPreferences(it).getLoggedInUser()?.MA_Nrp?.let {
+                notificationViewModel.remoteNotification.observe(this, Observer { t ->
+                    t.let {
+                        badge_home_action_notification.visibility = View.VISIBLE
+                        badge_home_action_notification.text = it.toString()
+                    }
+                })
+            }
+        }
         notificationViewModel.remoteNotification.observe(this, Observer { t ->
-            swlayout_home.isRefreshing=false
+            swlayout_home.isRefreshing = false
             t?.let {
                 tv_home_highlight_content.text = it.notificationMsg
                 if (!it.notificationCount.equals("0")) {
@@ -148,6 +162,7 @@ class HomeFragment : Fragment() {
                 }
 
             }
+
         })
 
         activity?.application?.let { LoginPreferences(it).getLoggedInUser()?.MA_Nrp }?.let {
@@ -172,17 +187,17 @@ class HomeFragment : Fragment() {
 
         val listPie = ArrayList<PieEntry>()
         val listColors = ArrayList<Int>()
-        var sakit = count?.sakit?.toFloat()?.div(count.kehadiran!!)?.times(100F)
-        var izin = count?.izin?.toFloat()?.div(count.kehadiran!!)?.times(100F)
-        var alpha = count?.alpha?.toFloat()?.div(count.kehadiran!!)?.times(100F)
-        var hadir = count.kehadiran?.minus(count?.izin!!)?.minus(count.sakit!!)?.toFloat()
-            ?.div(count?.kehadiran!!)?.times(100F)
+        var sakit = count?.sakit?.toFloat()?.div(count.jumlahPertemuan!!)?.times(100F)
+        var izin = count?.izin?.toFloat()?.div(count.jumlahPertemuan!!)?.times(100F)
+        var hadir = count.kehadiran?.minus(count?.izin!!)?.minus(count.sakit!!)?.toFloat()?.div(count.jumlahPertemuan!!)?.times(100F)
+        var alpha = count.jumlahPertemuan?.minus(count.kehadiran!!)?.toFloat()?.div(count.jumlahPertemuan!!)?.times(100F)
+
 
         tv_legend_sakit.text = count?.sakit.toString() + " Sakit"
         tv_legend_izin.text = count?.izin.toString() + " Izin"
-        tv_legend_alpha.text = count?.alpha.toString() + " Alpha"
+        tv_legend_alpha.text = count?.jumlahPertemuan?.minus(count.kehadiran!!)?.toString() + " Alpha"
         tv_legend_hadir.text =
-            count?.kehadiran!!.minus(count?.sakit!!).minus(count?.izin!!).minus(count?.alpha!!)
+            count?.kehadiran!!.minus(count?.sakit!!).minus(count?.izin!!)
                 .toString() + " Hadir"
 
         listPie.add(
@@ -261,7 +276,7 @@ class HomeFragment : Fragment() {
 
     private fun showData(MA_Nrp: Int) {
         kelasViewModel.getKelas(MA_Nrp)
-//        notificationViewModel.getRemoteNotification(MA_Nrp)
+        notificationViewModel.getRemoteNotification(MA_Nrp)
         presenceViewModel.getPresenceCount(MA_Nrp, "all")
     }
 
@@ -277,7 +292,7 @@ class HomeFragment : Fragment() {
 //            if(navController.popBackStack(R.id.nav_kelas,false)){
 //                Log.d("DESTINATION","exits")
 //            }else{
-                navController.navigate(R.id.action_nav_home_to_nav_kelas)
+            navController.navigate(R.id.action_nav_home_to_nav_kelas)
 //            }
         }
         return super.onOptionsItemSelected(item)

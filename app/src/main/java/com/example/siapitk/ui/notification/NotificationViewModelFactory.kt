@@ -24,7 +24,7 @@ class NotificationViewModelFactory(var application: Application) : ViewModelProv
                     application = application,
                     dao = NotificationRoomDatabase.getDatabase(application).notificationDao()
                 )
-            ) as T
+            ,application = application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

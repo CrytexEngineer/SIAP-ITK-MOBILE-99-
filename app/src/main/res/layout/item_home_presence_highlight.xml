@@ -35,12 +35,13 @@
             tools:text="36 Kehadiran" />
 
         <TextView
+            android:id="@+id/tv_home_presence_meetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/avenir"
-            android:text="Semester Ini"
+            tools:text="Semester Ini"
             android:textColor="@android:color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"

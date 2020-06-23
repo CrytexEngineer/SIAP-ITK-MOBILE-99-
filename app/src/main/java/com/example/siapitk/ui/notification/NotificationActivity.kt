@@ -9,13 +9,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.siapitk.R
-import com.example.siapitk.ViewModel.NotificationViewModelFactory
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.data.model.Notification
 import kotlinx.android.synthetic.main.activity_notification.*
 import kotlinx.android.synthetic.main.activity_presence.*
 
-class NotificationActivity : AppCompatActivity(),NotificationViewModel.NewNotificationCAllBack {
+class NotificationActivity : AppCompatActivity(){
 
     private lateinit var adapter: NotificationAdapter
     private lateinit var recyclerView: RecyclerView
@@ -66,14 +65,9 @@ class NotificationActivity : AppCompatActivity(),NotificationViewModel.NewNotifi
     }
 
     private fun showData() {
-        val MA_Nrp = LoginPreferences(this).getLoggedInUser()?.MA_Nrp
-        viewModel.getRemoteNotification(MA_Nrp!!,this)
+        viewModel.getSavedNotification()
     }
 
-    override fun onReceive() {
-//        val MA_Nrp = LoginPreferences(this).getLoggedInUser()?.MA_Nrp
-//        viewModel.getRemoteNotification(MA_Nrp!!,this)
-        showData()
-    }
+
 
 }

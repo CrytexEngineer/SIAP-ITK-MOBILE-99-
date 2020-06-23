@@ -1,7 +1,6 @@
 package com.example.siapitk.ui.kelas
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,22 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.siapitk.ApiUtils.KelasViewmodel
 import com.example.siapitk.MainActivity
-import com.example.siapitk.ProfileActivity
-import com.example.siapitk.QrScannerActivity
 import com.example.siapitk.R
 import com.example.siapitk.data.localDataSource.LoginPreferences
-import com.example.siapitk.ui.login.HomeViewModelFactory
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_kelas.*
 
 class KelasFragment : Fragment() {
@@ -51,8 +40,9 @@ class KelasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         activity?.application?.let { LoginPreferences(it).getLoggedInUser()?.MA_Nrp }?.let {
-            swlayout_kelas.setOnRefreshListener { showData(it)
-              }
+            swlayout_kelas.setOnRefreshListener {
+                showData(it)
+            }
 
         }
 
@@ -69,7 +59,8 @@ class KelasFragment : Fragment() {
 
         kelasViewModel.kelas.observe(this, Observer { t ->
             t?.let {
-                it.kelasList?.let { it1 -> adapter.setListKelas(it1)
+                it.kelasList?.let { it1 ->
+                    adapter.setListKelas(it1)
                     adapter.notifyDataSetChanged()
                     swlayout_kelas.setRefreshing(false);
                 }
@@ -99,14 +90,14 @@ class KelasFragment : Fragment() {
 
         val navController = findNavController()
 
-        Log.d("NAVIGATE", item.itemId.toString()+" = "+R.id.nav_home)
+        Log.d("NAVIGATE", item.itemId.toString() + " = " + R.id.nav_home)
 
-        if (item.itemId==R.id.nav_home){
+        if (item.itemId == R.id.nav_home) {
 //            if(navController.popBackStack(R.id.nav_home,false)){
 //                Log.d("DESTINATION","exits")
 //                navController.popBackStack()
 //            }else{
-                navController.navigate(R.id.action_nav_kelas_to_nav_home)
+            navController.navigate(R.id.action_nav_kelas_to_nav_home)
 //            }
         }
 

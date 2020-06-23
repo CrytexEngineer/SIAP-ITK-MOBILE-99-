@@ -3,6 +3,7 @@ package com.example.siapitk.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
+import androidx.preference.PreferenceManager
 import com.example.siapitk.data.localDataSource.NotificationDao
 import com.example.siapitk.data.model.ApiResponse
 import com.example.siapitk.data.remoteDataSource.NotificationDataSource
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class NotificationRepository(
     val dataSource: NotificationDataSource,
-    application: Application,
+   val application: Application,
     val dao: NotificationDao
 ) {
     fun getRemoteNotification(MA_Nrp: Int, callback: RemoteDataCallback) {
@@ -33,6 +34,7 @@ class NotificationRepository(
 
     suspend fun insert(notification: com.example.siapitk.data.model.Notification) {
         dao.insert(notification)
+
     }
 
 

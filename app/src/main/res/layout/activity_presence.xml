@@ -78,19 +78,49 @@
                         tools:text="70%" />
 
                     <LinearLayout
-                        android:id="@+id/layout_part_1"
+                        android:id="@+id/layout_part_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="48dp"
+                        android:layout_marginLeft="24dp"
                         android:layout_toRightOf="@id/presence_tv_count"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/presence_tv_pertemuan_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/avenir_roman"
+                            android:text="Pertemuan"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/presence_tv_pertemuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/presence_tv_sakit_label"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_toRightOf="@id/presence_tv_count"
+                            android:fontFamily="@font/avenir_roman"
+                            android:textColor="#22272C"
+                            android:textSize="18sp"
+                            tools:text="3" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_part_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_toRightOf="@id/layout_part_0"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/presence_tv_sakit_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/presence_tv_count"
                             android:fontFamily="@font/avenir_roman"
                             android:text="Sakit"
                             android:textSize="12sp" />
@@ -115,7 +145,7 @@
                         android:id="@id/layout_part_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="48dp"
+                        android:layout_marginLeft="24dp"
                         android:layout_toRightOf="@id/layout_part_1"
                         android:orientation="vertical">
 
@@ -149,7 +179,7 @@
                         android:id="@+id/layout_part_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="48dp"
+                        android:layout_marginLeft="24dp"
                         android:layout_toRightOf="@id/layout_part_2"
                         android:orientation="vertical">
 

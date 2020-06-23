@@ -12,13 +12,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.siapitk.ApiUtils.KelasViewmodel
 import com.example.siapitk.ApiUtils.PresenceViewModel
-import com.example.siapitk.ViewModel.NotificationViewModelFactory
-import com.example.siapitk.ViewModel.PresenceViewModelFactory
 import com.example.siapitk.data.localDataSource.LoginPreferences
 import com.example.siapitk.service.AlarmService
 import com.example.siapitk.ui.scanner.QrScannerActivity
 import com.example.siapitk.ui.login.HomeViewModelFactory
 import com.example.siapitk.ui.notification.NotificationViewModel
+import com.example.siapitk.ui.notification.NotificationViewModelFactory
+import com.example.siapitk.ui.presence.PresenceViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_kelas.*
 

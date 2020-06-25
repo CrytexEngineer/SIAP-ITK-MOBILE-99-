@@ -28,9 +28,8 @@
     </style>
 
 
-    <style name="AppTheme.NoActionBar.Splash" parent="AppTheme.NoActionBar.StatusBarGrey">
-        <item name="android:windowBackground">@drawable/splash</item>
-        <!--        <item name="android:scaleType">fitXY</item>-->
+    <style name="AppTheme.NoActionBar.Splash" parent="AppTheme.NoActionBar">
+            <item name="android:scaleType">centerCrop</item>
         <item name="android:windowNoTitle">true</item>
         <!--        <item name="android:windowContentOverlay">@drawable/splash_background</item>-->
 

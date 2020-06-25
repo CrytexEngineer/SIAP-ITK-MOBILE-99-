@@ -2,6 +2,7 @@ package com.example.siapitk.data
 
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceManager
 import com.example.siapitk.data.localDataSource.NotificationDao
@@ -33,8 +34,11 @@ class NotificationRepository(
     }
 
     suspend fun insert(notification: com.example.siapitk.data.model.Notification) {
-        dao.insert(notification)
-
+        try {
+        dao.insert(notification)}
+        catch (e:Exception){
+            Log.d("Datavase","CLOSED DATABASE")
+        }
     }
 
 

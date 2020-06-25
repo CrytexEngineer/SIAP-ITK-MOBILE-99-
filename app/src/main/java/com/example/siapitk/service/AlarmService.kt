@@ -58,7 +58,7 @@ class AlarmService : Service() {
         // menjadwalkan alarm per satu jam sekali
         setupTimerTask()
         Log.d("SERVICE", "Timer Set")
-        timer?.schedule(timerTask, 0, 5000)
+        timer?.schedule(timerTask, 0, 3600000)
     }
 
     private fun setupTimerTask() {
